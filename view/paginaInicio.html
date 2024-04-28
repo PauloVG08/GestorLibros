@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio</title>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="styles/bootstrap-5.1.3-dist/css/bootstrap.min.css"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="styles/font_awesome_5_15_3/css/all.min.css"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="styles/sweetalert2/sweetalert2.min.css"
+    />
+    <link type="text/css" rel="stylesheet" href="styles/estilos.css" />
+    <link rel="icon" href="resources/libro-abierto.png" type="image/x-icon" />
+  </head>
+  <body onload="loaded();">
+    <div id="tituloNav">
+      <nav
+        class="navbar navbar-expand-sm justify-content-center navbar-dark"
+        id="nav"
+      >
+        <a class="navbar-brand" href="paginaInicio.html"
+          ><img src="resources/SoftBerrys.png" alt="logo" id="logo"
+        /></a>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item usuario admin-content">
+              <a href="./crudLibros.html" id="openFormLink" class="nav-link active"
+                >Gestionar libros</a
+              >
+            </li>
+            <li class="nav-item">
+              <a id="openBiblioteca" class="nav-link active" href="./biblioteca.html"
+                >Ver Biblioteca</a
+              >
+            </li>
+            <li class="nav-item usuario admin-content">
+              <a id="openUsers" class="nav-link active" href="./crudUsuarios.html"
+                >Gestionar usuarios</a
+              >
+            </li>
+            </li>
+          </ul>
+        </div>
+        <button
+          id="buttonCerrarSesion"
+          onclick="cerrarSesion()"
+          class="btn btn-light"
+        >
+          Cerrar Sesión
+        </button>
+      </nav>
+    </div>
+    <!-- Carousel -->
+    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+      <!-- Indicators/dots -->
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#demo"
+          data-bs-slide-to="0"
+          class="active"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#demo"
+          data-bs-slide-to="1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#demo"
+          data-bs-slide-to="2"
+        ></button>
+      </div>
+
+      <!-- The slideshow/carousel -->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            src="resources/biblioteca1.jpg"
+            alt="biblioteca1"
+            class="d-block w-100 carrusel"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="resources/biblioteca2.jpg"
+            alt="biblioteca2"
+            class="d-block w-100 carrusel"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="resources/biblioteca3.jpg"
+            alt="biblioteca3"
+            class="d-block w-100 carrusel"
+          />
+        </div>
+      </div>
+
+      <!-- Left and right controls/icons -->
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#demo"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#demo"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+
+    <!-- Formulario -->
+    <div
+      class="modal fade"
+      id="myModal"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Formulario</h5>
+            <button
+              type="button"
+              class="close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <label for="titulo"
+                >Título del libro <span class="text-danger">*</span>:</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="titulo"
+                placeholder="Título"
+                required
+              />
+              <label for="titulo"
+                >Autor del libro <span class="text-danger">*</span>:</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="autor"
+                placeholder="Autor"
+                required
+              />
+              <label for="categoria"
+                >Categoria <span class="text-danger">*</span>:</label
+              >
+              <select class="form-control" id="categoria" required>
+                <option value="" disabled selected>
+                  Selecciona una categoría
+                </option>
+                <option value="drama">Drama</option>
+                <option value="romantico">Romántico</option>
+                <option value="ciencia_ficcion">Ciencia ficción</option>
+                <option value="informativo">Informativo</option>
+                <option value="cientifico">Científico</option>
+                <option value="terror">Terror</option>
+                <option value="triller">Triller</option>
+              </select>
+              <label for="titulo"
+                >Subir libro en PDF <span class="text-danger">*</span>:</label
+              >
+              <input
+                type="file"
+                class="form-control"
+                id="input_file"
+                placeholder="Selecciona el libro"
+                accept="application/pdf"
+                required
+              />
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  data-bs-dismiss="modal"
+                >
+                  Cerrar
+                </button>
+                <button onclick="saveBook();" type="button" class="btn btn-success">Guardar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="open-b" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Todos los libros</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <label for="buscar"
+              >Título del libro <span class="text-danger">*</span>:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="buscar"
+              placeholder="Buscar"
+              required
+            />
+
+            <div class="form-group row mt-3">
+              <label for="universidad" class="col-form-label col-md-4">
+                Selecciona una universidad
+                <span class="text-danger">*</span>:
+              </label>
+              <div class="col-md-6">
+                <select class="form-control" id="universidad" required>
+                  <option selected disabled>Elige una opción</option>
+                  <option value="utl">UTL</option>
+                  <option value="uvem">UVEM</option>
+                  <option value="itl">ITL</option>
+                  <option value="ug">UG</option>
+                  <option value="all">Todas</option>
+                </select>
+              </div>
+              <div class="col-md-2">
+                <button class="btn btn-primary">Buscar</button>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="m-0 p-4">
+      <p>SoftBerry Company</p>
+      <p><a href="mailto:softberry@gmail.com">softberry@gmail.com</a></p>
+    </footer>
+
+    <script src="styles/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="styles/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="scripts/controllerLogin.js"></script>
+    <script src="scripts/auth.js"></script>
+  </body>
+</html>

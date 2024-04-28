@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+  <head>
+    <title>Biblioteca</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="styles/bootstrap-5.1.3-dist/css/bootstrap.min.css"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="styles/font_awesome_5_15_3/css/all.min.css"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="styles/sweetalert2/sweetalert2.min.css"
+    />
+    <link rel="icon" href="resources/libro-abierto.png" type="image/x-icon" />
+  </head>
+  <body
+    style="
+      background-image: url(resources/janko-ferlic-sfL_QOnmy00-unsplash.jpg);
+      background-size: cover;
+    "
+  >
+    <div class="container-fluid">
+      <div
+        class="container-fluid d-flex justify-content-center align-items-center vh-100"
+      >
+        <div>
+          <div class="card border">
+            <div class="card-title h3 d-flex justify-content-center m-4">
+              ¡Bienvenido!
+            </div>
+            <div class="card-body m-4">
+              <label class="form-label text-center">Introduce el usuario</label>
+              <input
+                id="txtUser"
+                type="text"
+                class="form-control"
+                placeholder="Usuario"
+              />
+
+              <div>
+                <label class="form-label">Introduce la contraseña</label>
+                <input id="txtPassword" type="password" class="form-control" />
+              </div>
+
+              <input
+                type="checkbox"
+                id="mostrarPassword"
+                name="mostrarPassword"
+                value="True"
+                onclick="mostrarPassword()"
+              />
+              <label for="mostrarPassword">Mostrar Contraseña</label><br />
+
+              <div class="mt-3 d-flex justify-content-center">
+                <button class="btn btn-primary" onclick="comprobarCampos()">
+                  Iniciar sesión
+                </button>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="styles/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="styles/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="scripts/controllerLogin.js"></script>
+  </body>
+</html>
